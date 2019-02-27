@@ -12,3 +12,15 @@ The Features of this dataset are:
 	The target variable for this data is the purshased status.
 
 Happy coding."""
+
+# Step 0: import the necessary libraries: pandas, matplotlib.pyplot, and numpy.
+
+# Step 1: load your dataset using pandas
+
+# Step 2: Handle Missing data if they exist.
+
+# Step 3: Encode the categorical variables.
+
+# Step 4: Do Feature Scaling if necessary.
+
+# Final Step: Train/Test Splitting.
