@@ -15,12 +15,41 @@ Happy coding."""
 
 # Step 0: import the necessary libraries: pandas, matplotlib.pyplot, and numpy.
 
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
 # Step 1: load your dataset using pandas
+
+data = pd.read_csv('Social_Network_Ads.csv')
+X = data.iloc[:,:4].values
+
+y = data.iloc[:,-1].values
 
 # Step 2: Handle Missing data if they exist.
 
+# no misssing values
+
 # Step 3: Encode the categorical variables.
+from sklearn.preprocessing import LabelEncoder , OneHotEncoder
+
+label_sexe = LabelEncoder()
+
+X[:,1] = label_sexe.fit_transform(X[:,1])
+
+label_ID = LabelEncoder()
+X[:,0] = label_ID.fit_transform(X[:,0])
+
+onehotencoder = OneHotEncoder(categorical_features = [0])
+X = onehotencoder.fit_transform(X).toarray()
+
 
 # Step 4: Do Feature Scaling if necessary.
 
+from sklearn.preprocessing import StandardScaler
+scale = StandardScaler()
+X = scale.fit_transform(X)
+
 # Final Step: Train/Test Splitting.
+from sklearn.model_selection import train_test_split
+x_train , x_test , y_train , y_test = train_test_split(X , y,test_size = 0.25 , random_state = 2424)
